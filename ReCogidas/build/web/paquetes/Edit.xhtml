@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditPaquetesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditPaquetesLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{paquetesController.selected.id}" title="#{bundle.EditPaquetesTitle_id}" required="true" requiredMessage="#{bundle.EditPaquetesRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditPaquetesLabel_fechaRecogida}" for="fechaRecogida" />
+                    <h:inputText id="fechaRecogida" value="#{paquetesController.selected.fechaRecogida}" title="#{bundle.EditPaquetesTitle_fechaRecogida}" required="true" requiredMessage="#{bundle.EditPaquetesRequiredMessage_fechaRecogida}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditPaquetesLabel_fechaEstEntr}" for="fechaEstEntr" />
+                    <h:inputText id="fechaEstEntr" value="#{paquetesController.selected.fechaEstEntr}" title="#{bundle.EditPaquetesTitle_fechaEstEntr}" required="true" requiredMessage="#{bundle.EditPaquetesRequiredMessage_fechaEstEntr}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditPaquetesLabel_ciudadOrigen}" for="ciudadOrigen" />
+                    <h:inputText id="ciudadOrigen" value="#{paquetesController.selected.ciudadOrigen}" title="#{bundle.EditPaquetesTitle_ciudadOrigen}" required="true" requiredMessage="#{bundle.EditPaquetesRequiredMessage_ciudadOrigen}"/>
+                    <h:outputLabel value="#{bundle.EditPaquetesLabel_ciudadDestino}" for="ciudadDestino" />
+                    <h:inputText id="ciudadDestino" value="#{paquetesController.selected.ciudadDestino}" title="#{bundle.EditPaquetesTitle_ciudadDestino}" required="true" requiredMessage="#{bundle.EditPaquetesRequiredMessage_ciudadDestino}"/>
+                    <h:outputLabel value="#{bundle.EditPaquetesLabel_direccion}" for="direccion" />
+                    <h:inputText id="direccion" value="#{paquetesController.selected.direccion}" title="#{bundle.EditPaquetesTitle_direccion}" required="true" requiredMessage="#{bundle.EditPaquetesRequiredMessage_direccion}"/>
+                    <h:outputLabel value="#{bundle.EditPaquetesLabel_destinatario}" for="destinatario" />
+                    <h:inputText id="destinatario" value="#{paquetesController.selected.destinatario}" title="#{bundle.EditPaquetesTitle_destinatario}" required="true" requiredMessage="#{bundle.EditPaquetesRequiredMessage_destinatario}"/>
+                    <h:outputLabel value="#{bundle.EditPaquetesLabel_estadoActual}" for="estadoActual" />
+                    <h:inputText id="estadoActual" value="#{paquetesController.selected.estadoActual}" title="#{bundle.EditPaquetesTitle_estadoActual}" />
+                    <h:outputLabel value="#{bundle.EditPaquetesLabel_idPersEncargada}" for="idPersEncargada" />
+                    <h:inputText id="idPersEncargada" value="#{paquetesController.selected.idPersEncargada}" title="#{bundle.EditPaquetesTitle_idPersEncargada}" required="true" requiredMessage="#{bundle.EditPaquetesRequiredMessage_idPersEncargada}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{paquetesController.update}" value="#{bundle.EditPaquetesSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditPaquetesViewLink}"/>
+                <br />
+                <h:commandLink action="#{paquetesController.prepareList}" value="#{bundle.EditPaquetesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditPaquetesIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

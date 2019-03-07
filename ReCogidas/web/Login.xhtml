@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>             
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputLabel for="username">User Name</h:outputLabel>  
+                <h:inputText id="username" value="#{usersController.selected.username}" required="true" requiredMessage="User Name is required" />
+                <h:outputLabel for="username">Passowrd</h:outputLabel>  
+                <h:inputSecret id="password" value="#{usersController.selected.password}" required="true" requiredMessage="User Name is required" />
+                <h:commandButton id="submit-button" value="Ingresar" action="#{usersController.login}"/>  
+            </h:panelGrid>
+        </h:form>  
+    </h:body>
+</html>
+

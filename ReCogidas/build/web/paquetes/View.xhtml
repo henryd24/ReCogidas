@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewPaquetesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewPaquetesLabel_id}"/>
+                    <h:outputText value="#{paquetesController.selected.id}" title="#{bundle.ViewPaquetesTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewPaquetesLabel_fechaRecogida}"/>
+                    <h:outputText value="#{paquetesController.selected.fechaRecogida}" title="#{bundle.ViewPaquetesTitle_fechaRecogida}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewPaquetesLabel_fechaEstEntr}"/>
+                    <h:outputText value="#{paquetesController.selected.fechaEstEntr}" title="#{bundle.ViewPaquetesTitle_fechaEstEntr}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewPaquetesLabel_ciudadOrigen}"/>
+                    <h:outputText value="#{paquetesController.selected.ciudadOrigen}" title="#{bundle.ViewPaquetesTitle_ciudadOrigen}"/>
+                    <h:outputText value="#{bundle.ViewPaquetesLabel_ciudadDestino}"/>
+                    <h:outputText value="#{paquetesController.selected.ciudadDestino}" title="#{bundle.ViewPaquetesTitle_ciudadDestino}"/>
+                    <h:outputText value="#{bundle.ViewPaquetesLabel_direccion}"/>
+                    <h:outputText value="#{paquetesController.selected.direccion}" title="#{bundle.ViewPaquetesTitle_direccion}"/>
+                    <h:outputText value="#{bundle.ViewPaquetesLabel_destinatario}"/>
+                    <h:outputText value="#{paquetesController.selected.destinatario}" title="#{bundle.ViewPaquetesTitle_destinatario}"/>
+                    <h:outputText value="#{bundle.ViewPaquetesLabel_estadoActual}"/>
+                    <h:outputText value="#{paquetesController.selected.estadoActual}" title="#{bundle.ViewPaquetesTitle_estadoActual}"/>
+                    <h:outputText value="#{bundle.ViewPaquetesLabel_idPersEncargada}"/>
+                    <h:outputText value="#{paquetesController.selected.idPersEncargada}" title="#{bundle.ViewPaquetesTitle_idPersEncargada}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{paquetesController.destroyAndView}" value="#{bundle.ViewPaquetesDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewPaquetesEditLink}"/>
+                <br />
+                <h:commandLink action="#{paquetesController.prepareCreate}" value="#{bundle.ViewPaquetesCreateLink}" />
+                <br />
+                <h:commandLink action="#{paquetesController.prepareList}" value="#{bundle.ViewPaquetesShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewPaquetesIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListPaquetesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListPaquetesEmpty}" rendered="#{paquetesController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{paquetesController.items.rowCount > 0}">
+                    <h:outputText value="#{paquetesController.pagination.pageFirstItem + 1}..#{paquetesController.pagination.pageLastItem + 1}/#{paquetesController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{paquetesController.previous}" value="#{bundle.Previous} #{paquetesController.pagination.pageSize}" rendered="#{paquetesController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{paquetesController.next}" value="#{bundle.Next} #{paquetesController.pagination.pageSize}" rendered="#{paquetesController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{paquetesController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPaquetesTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPaquetesTitle_fechaRecogida}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaRecogida}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPaquetesTitle_fechaEstEntr}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaEstEntr}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPaquetesTitle_ciudadOrigen}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ciudadOrigen}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPaquetesTitle_ciudadDestino}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ciudadDestino}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPaquetesTitle_direccion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.direccion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPaquetesTitle_destinatario}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.destinatario}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPaquetesTitle_estadoActual}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estadoActual}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPaquetesTitle_idPersEncargada}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idPersEncargada}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{paquetesController.prepareView}" value="#{bundle.ListPaquetesViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{paquetesController.prepareEdit}" value="#{bundle.ListPaquetesEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{paquetesController.destroy}" value="#{bundle.ListPaquetesDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{paquetesController.prepareCreate}" value="#{bundle.ListPaquetesCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListPaquetesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
