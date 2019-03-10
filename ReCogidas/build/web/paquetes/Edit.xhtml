@@ -7,13 +7,16 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.EditPaquetesTitle}"></h:outputText>
+            <center>
+            <h:outputText value="Editar Paquete"></h:outputText>
+            </center>
         </ui:define>
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
+                <center>
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.EditPaquetesLabel_id}" for="id" />
                     <h:inputText id="id" value="#{paquetesController.selected.id}" title="#{bundle.EditPaquetesTitle_id}" required="true" requiredMessage="#{bundle.EditPaquetesRequiredMessage_id}"/>
@@ -38,15 +41,17 @@
                     <h:outputLabel value="#{bundle.EditPaquetesLabel_idPersEncargada}" for="idPersEncargada" />
                     <h:inputText id="idPersEncargada" value="#{paquetesController.selected.idPersEncargada}" title="#{bundle.EditPaquetesTitle_idPersEncargada}" required="true" requiredMessage="#{bundle.EditPaquetesRequiredMessage_idPersEncargada}"/>
                 </h:panelGrid>
-                <h:commandLink action="#{paquetesController.update}" value="#{bundle.EditPaquetesSaveLink}"/>
+                <h:commandLink action="#{paquetesController.update}" value="Guardar"/>
                 <br />
                 <br />
-                <h:link outcome="View" value="#{bundle.EditPaquetesViewLink}"/>
-                <br />
-                <h:commandLink action="#{paquetesController.prepareList}" value="#{bundle.EditPaquetesShowAllLink}" immediate="true"/>
+                <h:link outcome="View" value="Ver Paquete"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.EditPaquetesIndexLink}" />
+                <h:commandLink action="#{paquetesController.prepareList}" value="Mostrar todos los paquetes" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="Inicio" />
+                </center>
             </h:form>
         </ui:define>
     </ui:composition>
