@@ -7,6 +7,7 @@ import Facade.UsersFacade;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
@@ -171,9 +172,10 @@ public class UsersController implements Serializable {
             Users us = ejbFacade.login(current);
             if(us != null){
                 userLoger = us;
-                return "welcomePrimefaces";
+                return "index.xhtml";
             }else{
-                return "index";
+                userLoger = null;
+                return "Login.xhtml";
             }
             
         } catch (Exception e) {
@@ -182,6 +184,7 @@ public class UsersController implements Serializable {
         }
     }
 
+    
     private void recreateModel() {
         items = null;
     }
