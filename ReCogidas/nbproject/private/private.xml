@@ -3,11 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Henry%20Daniel/Documents/NetBeansProjects/ReCogidas/src/java/Controller/UsersController.java</file>
-            <file>file:/C:/Users/Henry%20Daniel/Documents/NetBeansProjects/ReCogidas/web/paquetes/Create.xhtml</file>
-            <file>file:/C:/Users/Henry%20Daniel/Documents/NetBeansProjects/ReCogidas/web/paquetes/Edit.xhtml</file>
-            <file>file:/C:/Users/Henry%20Daniel/Documents/NetBeansProjects/ReCogidas/web/Login.xhtml</file>
-            <file>file:/C:/Users/Henry%20Daniel/Documents/NetBeansProjects/ReCogidas/web/index.xhtml</file>
+<<<<<<< HEAD
+            <file>file:/C:/Users/Henry%20Daniel/Documents/GitHub/ReCogidas/ReCogidas/web/paquetes/List.xhtml</file>
+            <file>file:/C:/Users/Henry%20Daniel/Documents/GitHub/ReCogidas/ReCogidas/web/paquetes/View.xhtml</file>
+=======
+            <file>file:/C:/Users/ASUS/Documents/GitHub/ReCogidas/ReCogidas/src/java/Controller/PaquetesController.java</file>
+>>>>>>> c49ace69128aa54fb96d8641ee05996263459d20
         </group>
     </open-files>
 </project-private>
