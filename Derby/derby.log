@@ -25,3 +25,5 @@ os.arch=amd64
 os.version=10.0
 derby.system.home=D:\Users\USER\Documents\GitHub\ReCogidas\Derby
 Cargador de clases de base de datos iniciado - derby.database.classpath=''
+----------------------------------------------------------------
+Tue Mar 12 22:48:19 COT 2019: cerrando motor de Derby
