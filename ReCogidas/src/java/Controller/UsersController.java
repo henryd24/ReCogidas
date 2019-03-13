@@ -32,13 +32,13 @@ public class UsersController implements Serializable {
     private int selectedItemIndex;
 
     public UsersController() {
-        userLoger=null;
+        userLoger = null;
     }
 
     public Users getUserLoger() {
         return userLoger;
     }
-    
+
     public Users getSelected() {
         if (current == null) {
             current = new Users();
@@ -166,25 +166,33 @@ public class UsersController implements Serializable {
         }
         return items;
     }
+
     public String login() {
-        
-        try {           
+
+        try {
             Users us = ejbFacade.login(current);
-            if(us != null){
+            if (us != null) {
                 userLoger = us;
-                return "index.xhtml";
-            }else{
+                if ("E".equals(userLoger.getRol())) {
+                    return "empleados.xhtml";
+                }else if ("A".equals(userLoger.getRol())) {
+                    return "index.xhtml";
+                }else{
+                    return "Login.xhtml";
+                }
+                
+                }
+            else {
                 userLoger = null;
                 return "Login.xhtml";
             }
-            
+
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
             return null;
         }
     }
 
-    
     private void recreateModel() {
         items = null;
     }

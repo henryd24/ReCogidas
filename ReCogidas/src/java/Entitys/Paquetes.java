@@ -6,6 +6,7 @@
 package Entitys;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -50,7 +51,7 @@ public class Paquetes implements Serializable {
     @NotNull
     @Column(name = "FECHA_RECOGIDA")
     @Temporal(TemporalType.DATE)
-    private Date fechaRecogida;
+    private Date fechaRecogida = new Date();
     @Basic(optional = false)
     @NotNull
     @Column(name = "FECHA_EST_ENTR")
@@ -111,6 +112,7 @@ public class Paquetes implements Serializable {
     }
 
     public Date getFechaRecogida() {
+        //Para que en el campo se muestre la fecha actual
         return fechaRecogida;
     }
 
