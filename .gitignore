@@ -7,3 +7,4 @@ ReCogidas/nbproject/private/private.xml
 ReCogidas/nbproject/ant-deploy.xml
 ReCogidas/nbproject/private/private.properties
 ReCogidas/nbproject/project.properties
+*.class
