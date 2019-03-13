@@ -7,13 +7,16 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.ViewPaquetesTitle}"></h:outputText>
+            <center>
+            <h:outputText value="Paquete"></h:outputText>
+            </center>
         </ui:define>
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
+                <center>
                 <h:panelGrid columns="2">
                     <h:outputText value="#{bundle.ViewPaquetesLabel_id}"/>
                     <h:outputText value="#{paquetesController.selected.id}" title="#{bundle.ViewPaquetesTitle_id}"/>
@@ -39,18 +42,20 @@
                     <h:outputText value="#{paquetesController.selected.idPersEncargada}" title="#{bundle.ViewPaquetesTitle_idPersEncargada}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{paquetesController.destroyAndView}" value="#{bundle.ViewPaquetesDestroyLink}"/>
+                <h:commandLink action="#{paquetesController.destroyAndView}" value="Eliminar paquete"/>
                 <br />
                 <br />
-                <h:link outcome="Edit" value="#{bundle.ViewPaquetesEditLink}"/>
-                <br />
-                <h:commandLink action="#{paquetesController.prepareCreate}" value="#{bundle.ViewPaquetesCreateLink}" />
-                <br />
-                <h:commandLink action="#{paquetesController.prepareList}" value="#{bundle.ViewPaquetesShowAllLink}"/>
+                <h:link outcome="Edit" value="Editar"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.ViewPaquetesIndexLink}"/>
-
+                <h:commandLink action="#{paquetesController.prepareCreate}" value="Crear un nuevo paquete" />
+                <br />
+                <br />
+                <h:commandLink action="#{paquetesController.prepareList}" value="Mostrar todos los paquetes"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="Inicio"/>
+</center>
             </h:form>
         </ui:define>
     </ui:composition>

@@ -6,14 +6,18 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:composition template="/template.xhtml">
+        <title>Login</title>
         <ui:define name="title">
-            <h:outputText value="#{bundle.CreatePaquetesTitle}"></h:outputText>
+            <center>
+            <h:outputText value="Crear un nuevo paquete"></h:outputText>
+            </center>
         </ui:define>
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
+                <center>
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.CreatePaquetesLabel_id}" for="id" />
                     <h:inputText id="id" value="#{paquetesController.selected.id}" title="#{bundle.CreatePaquetesTitle_id}" required="true" requiredMessage="#{bundle.CreatePaquetesRequiredMessage_id}"/>
@@ -39,13 +43,14 @@
                     <h:inputText id="idPersEncargada" value="#{paquetesController.selected.idPersEncargada}" title="#{bundle.CreatePaquetesTitle_idPersEncargada}" required="true" requiredMessage="#{bundle.CreatePaquetesRequiredMessage_idPersEncargada}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{paquetesController.create}" value="#{bundle.CreatePaquetesSaveLink}" />
+                <h:commandLink action="#{paquetesController.create}" value="Guardar" />
                 <br />
                 <br />
-                <h:commandLink action="#{paquetesController.prepareList}" value="#{bundle.CreatePaquetesShowAllLink}" immediate="true"/>
+                <h:commandLink action="#{paquetesController.prepareList}" value="Mostrar todos los paquetes" immediate="true"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.CreatePaquetesIndexLink}"/>
+                <h:link outcome="/index" value="Inicio"/>
+                </center>
             </h:form>
         </ui:define>
     </ui:composition>

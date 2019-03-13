@@ -41,7 +41,6 @@ public class UsersFacade extends AbstractFacade<Users> {
         if (lista.isEmpty()) {
             return null;
         }else{
-            System.out.println("encontrado");
             return lista.get(0);
         }
         

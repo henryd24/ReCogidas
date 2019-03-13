@@ -84,24 +84,8 @@
                             </f:facet>
                             <h:outputText value="#{item.idPersEncargada}"/>
                         </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{paquetesController.prepareView}" value="Ver"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{paquetesController.prepareEdit}" value="Editar"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{paquetesController.destroy}" value="Eliminar"/>
-                        </h:column>
                     </h:dataTable>
                 </h:panelGroup>
-                <br />
-                <h:commandLink action="#{paquetesController.prepareCreate}" value="Crear nuevo paquete"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="Inicio"/>
-                
             </h:form>
                 </center>
         </ui:define>
