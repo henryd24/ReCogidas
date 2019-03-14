@@ -7,9 +7,12 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
+            <center>
             <h:outputText value="#{bundle.ViewUsersTitle}"></h:outputText>
+            </center>
         </ui:define>
         <ui:define name="body">
+            <center>
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
@@ -23,12 +26,15 @@
                     <h:outputText value="#{usersController.selected.password}" title="#{bundle.ViewUsersTitle_password}"/>
                 </h:panelGrid>
                 <br />
+                <br />
                 <h:commandLink action="#{usersController.destroyAndView}" value="#{bundle.ViewUsersDestroyLink}"/>
                 <br />
                 <br />
                 <h:link outcome="Edit" value="#{bundle.ViewUsersEditLink}"/>
                 <br />
+                <br />
                 <h:commandLink action="#{usersController.prepareCreate}" value="#{bundle.ViewUsersCreateLink}" />
+                <br />
                 <br />
                 <h:commandLink action="#{usersController.prepareList}" value="#{bundle.ViewUsersShowAllLink}"/>
                 <br />
@@ -36,6 +42,7 @@
                 <h:link outcome="/index" value="#{bundle.ViewUsersIndexLink}"/>
 
             </h:form>
+            </center>
         </ui:define>
     </ui:composition>
 

@@ -1,20 +1,7 @@
-Tue Mar 12 19:21:35 COT 2019 : Servidor de red Apache Derby: Se ha iniciado 10.10.2.0 - (1582446) y está listo para aceptar las conexiones en el puerto 1527
+Wed Mar 13 19:45:40 COT 2019 : Servidor de red Apache Derby: Se ha iniciado 10.10.2.0 - (1582446) y está listo para aceptar las conexiones en el puerto 1527
 ----------------------------------------------------------------
-Tue Mar 12 19:21:38 COT 2019:
- Iniciando instancia a816c00e-0169-746d-03ea-ffffa6f8b683 de Derby, versión The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): 
-en el directorio de base de datos D:\Users\USER\Documents\GitHub\ReCogidas\Derby\sample con el cargador de clases sun.misc.Launcher$AppClassLoader@6f94fa3e
-Cargado desde file:/D:/Users/USER/Documents/GitHub/ReCogidas/javadb/lib/derby.jar
-java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_111-b14
-user.dir=D:\Users\USER\Documents\GitHub\ReCogidas\javadb
-os.name=Windows 10
-os.arch=amd64
-os.version=10.0
-derby.system.home=D:\Users\USER\Documents\GitHub\ReCogidas\Derby
-Cargador de clases de base de datos iniciado - derby.database.classpath=''
-----------------------------------------------------------------
-Tue Mar 12 19:24:44 COT 2019:
- Iniciando instancia 2c44c05e-0169-746d-03ea-ffffa6f8b683 de Derby, versión The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): 
+Wed Mar 13 19:45:41 COT 2019:
+ Iniciando instancia a816c00e-0169-79a9-6b6d-ffffa6f8b683 de Derby, versión The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): 
 en el directorio de base de datos D:\Users\USER\Documents\GitHub\ReCogidas\Derby\RecogidasDB con el cargador de clases sun.misc.Launcher$AppClassLoader@6f94fa3e
 Cargado desde file:/D:/Users/USER/Documents/GitHub/ReCogidas/javadb/lib/derby.jar
 java.vendor=Oracle Corporation
@@ -25,5 +12,3 @@ os.arch=amd64
 os.version=10.0
 derby.system.home=D:\Users\USER\Documents\GitHub\ReCogidas\Derby
 Cargador de clases de base de datos iniciado - derby.database.classpath=''
-----------------------------------------------------------------
-Tue Mar 12 22:48:19 COT 2019: cerrando motor de Derby

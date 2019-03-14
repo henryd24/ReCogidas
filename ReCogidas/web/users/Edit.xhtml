@@ -7,9 +7,12 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
+            <center>
             <h:outputText value="#{bundle.EditUsersTitle}"></h:outputText>
+            </center>
         </ui:define>
         <ui:define name="body">
+            <center>
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
@@ -27,11 +30,13 @@
                 <br />
                 <h:link outcome="View" value="#{bundle.EditUsersViewLink}"/>
                 <br />
+                <br />
                 <h:commandLink action="#{usersController.prepareList}" value="#{bundle.EditUsersShowAllLink}" immediate="true"/>
                 <br />
                 <br />
                 <h:link outcome="/index" value="#{bundle.EditUsersIndexLink}" />
             </h:form>
+            </center>
         </ui:define>
     </ui:composition>
 

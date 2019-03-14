@@ -7,9 +7,12 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
+            <center>
             <h:outputText value="#{bundle.CreateUsersTitle}"></h:outputText>
+            </center>
         </ui:define>
         <ui:define name="body">
+            <center>
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
@@ -23,6 +26,7 @@
                     <h:inputText id="password" value="#{usersController.selected.password}" title="#{bundle.CreateUsersTitle_password}" required="true" requiredMessage="#{bundle.CreateUsersRequiredMessage_password}"/>
                 </h:panelGrid>
                 <br />
+                <br />
                 <h:commandLink action="#{usersController.create}" value="#{bundle.CreateUsersSaveLink}" />
                 <br />
                 <br />
@@ -31,6 +35,7 @@
                 <br />
                 <h:link outcome="/index" value="#{bundle.CreateUsersIndexLink}"/>
             </h:form>
+            </center>
         </ui:define>
     </ui:composition>
 

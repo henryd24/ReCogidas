@@ -1,55 +1,41 @@
-<!--<?xml version="1.0" encoding="UTF-8" ?>-->
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
             <center>
-            <img src="https://image.flaticon.com/icons/svg/72/72648.svg" height="200" width="200"/>
-            
+            <h:outputText value="#{bundle.CreateUsersTitle}"></h:outputText>
             </center>
         </ui:define>
         <ui:define name="body">
+            <center>
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
-            <h:form style="margin-top: 6px; margin-right: 500px; margin-left: 500px; margin-bottom: 10px">
-                <p:panel id="panel" header="Form" style="margin-bottom:10px;">
-                    <p:messages id="messages" />
-                    <h:panelGrid columns="3" cellpadding="5">
-                        <h:outputLabel value="#{bundle.CreateUsersLabel_id}" for="id" />
-                        <h:inputText id="id" value="#{usersController.selected.id}" title="#{bundle.CreateUsersTitle_id}" required="true" requiredMessage="#{bundle.CreateUsersRequiredMessage_id}"/>
-                        <h:message for="id" />
- 
-                        <h:outputLabel value="#{bundle.CreateUsersLabel_username}" for="username"/>
-                        <h:inputText id="username" value="#{usersController.selected.username}" title="#{bundle.CreateUsersTitle_username}" required="true" requiredMessage="#{bundle.CreateUsersRequiredMessage_username}">
-                            <f:validateLength minimum="4" />
-                        </h:inputText>    
-                        <h:message for="username" />
-                        
-                        <h:outputLabel value="#{bundle.CreateUsersLabel_password}" for="password" />
-                        <h:inputText id="password" value="#{usersController.selected.password}" title="#{bundle.CreateUsersTitle_password}" required="true" requiredMessage="#{bundle.CreateUsersRequiredMessage_password}">
-                            <f:validateLength minimum="6" />
-                        </h:inputText>    
-                        <h:message for="password" />
-                    </h:panelGrid>
-                </p:panel>    
-                <p:toolbar>
-                    <f:facet name="left">
-                        <p:commandButton action="#{usersController.create}" value="Guardar" update="panel"  style="margin-right:10px; margin-left:10px" />
-                        <p:link outcome="/index" value="#{bundle.CreateUsersIndexLink}"  style="margin-right:10px; margin-left:40px" />
-                        <p:commandButton action="#{usersController.prepareList}" value="Usuarios" immediate="true" update="panel" process="@this" style=" margin-left:46px" />
-                        
-                        
-                        
-                    </f:facet>
-                </p:toolbar>    
-                
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateUsersLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{usersController.selected.id}" title="#{bundle.CreateUsersTitle_id}" required="true" requiredMessage="#{bundle.CreateUsersRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateUsersLabel_username}" for="username" />
+                    <h:inputText id="username" value="#{usersController.selected.username}" title="#{bundle.CreateUsersTitle_username}" required="true" requiredMessage="#{bundle.CreateUsersRequiredMessage_username}"/>
+                    <h:outputLabel value="#{bundle.CreateUsersLabel_password}" for="password" />
+                    <h:inputText id="password" value="#{usersController.selected.password}" title="#{bundle.CreateUsersTitle_password}" required="true" requiredMessage="#{bundle.CreateUsersRequiredMessage_password}"/>
+                </h:panelGrid>
+                <br />
+                <br />
+                <h:commandLink action="#{usersController.create}" value="#{bundle.CreateUsersSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{usersController.prepareList}" value="#{bundle.CreateUsersShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateUsersIndexLink}"/>
             </h:form>
+            </center>
         </ui:define>
     </ui:composition>
 
