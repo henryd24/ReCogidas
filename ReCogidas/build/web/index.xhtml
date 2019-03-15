@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+        <f:metadata>
+            <f:event listener="#{usersController.verifyLogin()}" 
+                 type="preRenderView"></f:event>
+        </f:metadata>
+        <f:metadata>
+        <f:event listener="#{usersController.verifyEmpleado()}" 
+                 type="preRenderView"></f:event>
+        </f:metadata>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    <h:body>
+        <center>
+            Bienvenido Admin
+        </center>
+
+        <br />
+        <center>
+            Tablas que desea ver:
+            <br />
+            <br />
+            Usuarios: 
+            <p:button outcome="/users/List" value="Usuarios" icon="pi pi-star" style="margin-right:20px;">
+                <f:param name="productId" value="10" />
+            </p:button>
+            <br />
+        </center>
+        <br />
+        <center>
+            Paquetes: 
+            <p:button outcome="/paquetes/List" value="Paquetes" icon="pi pi-star" style="margin-right:20px;">
+                <f:param name="productId" value="10" />
+            </p:button>
+           
+        </center>
+
+
+    </h:body>
+
+</html>
