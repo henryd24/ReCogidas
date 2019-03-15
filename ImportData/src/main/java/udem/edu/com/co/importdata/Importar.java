@@ -5,7 +5,7 @@
  */
 package udem.edu.com.co.importdata;
 
-import com.opencsv.CSVReader;
+import com.opencsv.CSVReader; //Esta libreria es gestionada con Maven
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
@@ -16,15 +16,21 @@ import java.sql.SQLException;
 /**
  *
  * @author ASUS
+ * Esta clase se usa como manejador para importar los datos del documento CSV
+ * al servidor Derby
+ * 
  */
 public class Importar {
     
-    private final char SEPARATOR = ';';
-    private final char QUOTE = '"';
+    private char SEPARATOR;
+    private char QUOTE;
     
     public Importar() {
+        SEPARATOR = ';';
+        QUOTE = '"';
     }
     
+    //Este metodo es usado para cargar el documento csv que contiene los paquetes
     public void ImportarPaquetes(String dir) {
 
 
@@ -73,7 +79,8 @@ public class Importar {
         }
 
     }
-
+    
+    //Este metodo es usado para cargar el documento csv que contiene los usuarios
     public void ImportarUsuarios(String dir) {
 
         
@@ -87,7 +94,7 @@ public class Importar {
             reader = new CSVReader(new FileReader("src//main//resources//tablas//USUARIOS.csv"), SEPARATOR, QUOTE);
             String[] data;
             int i = 0;
-            System.out.println("Importando paquetes");
+            System.out.println("Importando usuarios");
             while ((data = reader.readNext()) != null) {
 
                 int id = Integer.parseInt(data[0]);
@@ -118,6 +125,22 @@ public class Importar {
         }  
                 
 
+    }
+
+    public char getSEPARATOR() {
+        return SEPARATOR;
+    }
+
+    public void setSEPARATOR(char SEPARATOR) {
+        this.SEPARATOR = SEPARATOR;
+    }
+
+    public char getQUOTE() {
+        return QUOTE;
+    }
+
+    public void setQUOTE(char QUOTE) {
+        this.QUOTE = QUOTE;
     }
 
 }
