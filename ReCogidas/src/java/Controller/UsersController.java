@@ -179,12 +179,12 @@ public class UsersController implements Serializable {
     */
     public void verifyLogin() {
         if (!this.logeado) {
-            doRedirect("/ReCogidas/");
+            doRedirect("Login.xhtml");
         }
     }
     public void verifyEmpleado() {
-        if (userLoger!=null && userLoger.getRol().equalsIgnoreCase("e")) {
-            doRedirect("/ReCogidas/faces/empleados.xhtml");
+        if (userLoger.getRol().equalsIgnoreCase("e")) {
+            doRedirect("empleados.xhtml");
         }
     }
     /*
@@ -208,9 +208,9 @@ public class UsersController implements Serializable {
             if (us != null) {
                 userLoger = us;
                 logeado=true;
-                if ("E".equalsIgnoreCase(userLoger.getRol())) {
+                if ("E".equals(userLoger.getRol())) {
                     return "empleados.xhtml";
-                }else if ("A".equalsIgnoreCase(userLoger.getRol())) {
+                }else if ("A".equals(userLoger.getRol())) {
                     return "index.xhtml";
                 }else{
                     return "Login.xhtml";
