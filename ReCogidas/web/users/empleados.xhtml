@@ -5,12 +5,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-    
-    <f:metadata>
-        <f:event listener="#{usersController.verifyEmpleado()}" 
-                 type="preRenderView"></f:event>
-    </f:metadata>
-    
+
     <ui:composition template="/template.xhtml">
         <div style="text-align:center">
         <ui:define name="title">
@@ -89,24 +84,8 @@
                             </f:facet>
                             <h:outputText value="#{item.idPersEncargada}"/>
                         </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{paquetesController.prepareView}" value="Ver"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{paquetesController.prepareEdit}" value="Editar"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{paquetesController.destroy}" value="Eliminar"/>
-                        </h:column>
                     </h:dataTable>
                 </h:panelGroup>
-                <br />
-                <h:commandLink action="#{paquetesController.prepareCreate}" value="Crear nuevo paquete"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="Inicio"/>
-                
             </h:form>
                 </center>
         </ui:define>

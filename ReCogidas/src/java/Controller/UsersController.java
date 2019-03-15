@@ -22,7 +22,7 @@ import javax.faces.model.SelectItem;
 @Named("usersController")
 @SessionScoped
 public class UsersController implements Serializable {
-    private boolean Logeado=false;
+    private boolean logeado=false;
     private Users current;
     private Users userLoger;
     private DataModel items = null;
@@ -35,12 +35,12 @@ public class UsersController implements Serializable {
         userLoger = null;
     }
 
-    public boolean isLogeado() {
-        return Logeado;
+    public boolean islogeado() {
+        return logeado;
     }
 
-    public void setLogeado(boolean estaLogeado) {
-        this.Logeado = estaLogeado;
+    public void setlogeado(boolean estalogeado) {
+        this.logeado = estalogeado;
     }
 
     public Users getUserLoger() {
@@ -174,14 +174,22 @@ public class UsersController implements Serializable {
         }
         return items;
     }
- 
+    /*
+    verifyLogin se encarga de verificar si está logeado
+    */
     public void verifyLogin() {
-        if (!this.Logeado) {
+        if (!this.logeado) {
             doRedirect("Login.xhtml");
-        }else if (this.Logeado && this.userLoger.getRol().equalsIgnoreCase("e")) {
+        }
+    }
+    public void verifyEmpleado() {
+        if (userLoger.getRol().equalsIgnoreCase("e")) {
             doRedirect("empleados.xhtml");
         }
     }
+    /*
+    doRedirect se encarga de redirigir a una URL en concreto
+    */
     public void doRedirect(String url) {
         try {
             FacesContext context = FacesContext.getCurrentInstance();
@@ -190,14 +198,16 @@ public class UsersController implements Serializable {
             System.out.println(e.getMessage());
         }
     }
-    
+    /*
+    Verificacion de logeo
+    */
     public String login() {
 
         try {
             Users us = ejbFacade.login(current);
             if (us != null) {
                 userLoger = us;
-                Logeado=true;
+                logeado=true;
                 if ("E".equals(userLoger.getRol())) {
                     return "empleados.xhtml";
                 }else if ("A".equals(userLoger.getRol())) {

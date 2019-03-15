@@ -5,38 +5,44 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
-    <ui:composition template="/template.xhtml">
-        <h:head>
-            <title>Facelet Title</title>
-            <h:outputStylesheet name="css/jsfcrud.css"/>
-        </h:head>
-        <h:body>
-            <center>
-                Bienvenido Admin
-            </center>
+    
+    <f:metadata>
+        <f:event listener="#{usersController.verifyLogin()}" 
+                 type="preRenderView"></f:event>
+    </f:metadata>
+    <f:metadata>
+        <f:event listener="#{usersController.verifyEmpleado()}" 
+                 type="preRenderView"></f:event>
+    </f:metadata>
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    <h:body>
+        <center>
+            Bienvenido Admin
+        </center>
 
+        <br />
+        <center>
+            Tablas que desea ver:
             <br />
-            <center>
-                Tablas que desea ver:
-                <br />
-                <br />
-                Usuarios: 
-                <p:button outcome="/users/List" value="Usuarios" icon="pi pi-star" style="margin-right:20px;">
-                    <f:param name="productId" value="10" />
-                </p:button>
-                <br />
-            </center>
             <br />
-            <center>
-                Paquetes: 
-                <p:button outcome="/paquetes/List" value="Paquetes" icon="pi pi-star" style="margin-right:20px;">
-                    <f:param name="productId" value="10" />
-                </p:button>
+            Usuarios: 
+            <p:button outcome="/users/List" value="Usuarios" icon="pi pi-star" style="margin-right:20px;">
+                <f:param name="productId" value="10" />
+            </p:button>
+            <br />
+        </center>
+        <br />
+        <center>
+            Paquetes: 
+            <p:button outcome="/paquetes/List" value="Paquetes" icon="pi pi-star" style="margin-right:20px;">
+                <f:param name="productId" value="10" />
+            </p:button>
 
-            </center>
+        </center>
+    </h:body>
 
-
-        </h:body>
-    </ui:composition>
 </html>
 
