@@ -22,16 +22,16 @@ import java.sql.SQLException;
  */
 public class Importar {
     
-    private char SEPARATOR;
-    private char QUOTE;
+    private char separator;
+    private char quote;
     
     public Importar() {
-        SEPARATOR = ';';
-        QUOTE = '"';
+        separator = ';';
+        quote = '"';
     }
     
     //Este metodo es usado para cargar el documento csv que contiene los paquetes
-    public void ImportarPaquetes(String dir) {
+    public void importarPaquetes(String dir) {
 
 
         CSVReader reader = null;
@@ -41,7 +41,7 @@ public class Importar {
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             Connection con = (Connection) DriverManager.getConnection(dir, "app", "app");
             con.setAutoCommit(false);
-            reader = new CSVReader(new FileReader("src//main//resources//tablas//PAQUETES.csv"), SEPARATOR, QUOTE);
+            reader = new CSVReader(new FileReader("src//main//resources//tablas//PAQUETES.csv"), separator, quote);
             String[] data;
             int i = 0;
             System.out.println("Importando paquetes");
@@ -81,7 +81,7 @@ public class Importar {
     }
     
     //Este metodo es usado para cargar el documento csv que contiene los usuarios
-    public void ImportarUsuarios(String dir) {
+    public void importarUsuarios(String dir) {
 
         
         CSVReader reader = null;
@@ -91,7 +91,7 @@ public class Importar {
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             Connection con = (Connection) DriverManager.getConnection(dir, "app", "app");
             con.setAutoCommit(false);
-            reader = new CSVReader(new FileReader("src//main//resources//tablas//USUARIOS.csv"), SEPARATOR, QUOTE);
+            reader = new CSVReader(new FileReader("src//main//resources//tablas//USUARIOS.csv"), separator, quote);
             String[] data;
             int i = 0;
             System.out.println("Importando usuarios");
@@ -127,20 +127,20 @@ public class Importar {
 
     }
 
-    public char getSEPARATOR() {
-        return SEPARATOR;
+    public char getSeparator() {
+        return separator;
     }
 
-    public void setSEPARATOR(char SEPARATOR) {
-        this.SEPARATOR = SEPARATOR;
+    public void setSeparator(char separator) {
+        this.separator = separator;
     }
 
-    public char getQUOTE() {
-        return QUOTE;
+    public char getQuote() {
+        return quote;
     }
 
-    public void setQUOTE(char QUOTE) {
-        this.QUOTE = QUOTE;
+    public void setQuote(char quote) {
+        this.quote = quote;
     }
 
 }
