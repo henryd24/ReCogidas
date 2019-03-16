@@ -7,10 +7,12 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Facelet Title</title>
+         <!-- Se asegura que si haya un usuario conectado para permitir la navegacion -->
         <f:metadata>
             <f:event listener="#{usersController.verifyLogin()}" 
                  type="preRenderView"></f:event>
         </f:metadata>
+          <!-- Se asegura que los empleados no puedan navegar en éstos sitios -->
         <f:metadata>
         <f:event listener="#{usersController.verifyEmpleado()}" 
                  type="preRenderView"></f:event>

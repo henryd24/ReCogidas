@@ -22,7 +22,7 @@ import javax.faces.model.SelectItem;
 @Named("usersController")
 @SessionScoped
 public class UsersController implements Serializable {
-    private boolean logeado=false;
+    private boolean logeado=false; //Para verificar si alguien sí está logeado y permitirle navegar entre páginas
     private Users current;
     private Users userLoger;
     private DataModel items = null;
@@ -167,17 +167,13 @@ public class UsersController implements Serializable {
             current = getFacade().findRange(new int[]{selectedItemIndex, selectedItemIndex + 1}).get(0);
         }
     }
-
     public DataModel getItems() {
         if (items == null) {
             items = getPagination().createPageDataModel();
         }
         return items;
     }
-    /*
-    verifyLogin se encarga de verificar si está logeado
-    */
-    public void verifyLogin() {
+    public void verifyLogin() {//verifyLogin se encarga de verificar si está logeado
         if (!this.logeado) {
             doRedirect("/ReCogidas/");
         }
@@ -187,10 +183,7 @@ public class UsersController implements Serializable {
             doRedirect("/ReCogidas/faces/empleados.xhtml");
         }
     }
-    /*
-    doRedirect se encarga de redirigir a una URL en concreto
-    */
-    public void doRedirect(String url) {
+    public void doRedirect(String url) {//doRedirect se encarga de redirigir a una URL en concreto
         try {
             FacesContext context = FacesContext.getCurrentInstance();
             context.getExternalContext().redirect(url);
@@ -198,28 +191,25 @@ public class UsersController implements Serializable {
             System.out.println(e.getMessage());
         }
     }
-    /*
-    Verificacion de logeo
-    */
-    public String login() {
 
+    public String login() {    //Verificacion de logeo
         try {
             Users us = ejbFacade.login(current);
             if (us != null) {
                 userLoger = us;
                 logeado=true;
-                if ("E".equalsIgnoreCase(userLoger.getRol())) {
+                if ("E".equalsIgnoreCase(userLoger.getRol())) {     //Redireccionamiento si es empleado
                     return "empleados.xhtml";
-                }else if ("A".equalsIgnoreCase(userLoger.getRol())) {
+                }else if ("A".equalsIgnoreCase(userLoger.getRol())) {// Redireccionamiento si es administrador
                     return "index.xhtml";
                 }else{
-                    return "Login.xhtml";
+                    return "Login.xhtml"; //Si el registro es inválido o el usuario no tiene ningun rol en la BD
                 }
                 
                 }
             else {
                 userLoger = null;
-                return "Login.xhtml";
+                return "Login.xhtml"; //Si el resgistro es inválido
             }
 
         } catch (Exception e) {
