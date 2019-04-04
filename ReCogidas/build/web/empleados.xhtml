@@ -8,88 +8,95 @@
 
     <ui:composition template="/template.xhtml">
         <div style="text-align:center">
-        <ui:define name="title">
-            <center>
-            <h:outputText value="Lista de paquetes" ></h:outputText>
-            </center>
-        </ui:define>
-        <ui:define name="body">
-            <center>
-            <h:form styleClass="jsfcrud_list_form">
-                
-                <h:panelGroup id="messagePanel" layout="block">
-                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-                </h:panelGroup>
-                <h:outputText escape="false" value="#{bundle.ListPaquetesEmpty}" rendered="#{paquetesController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{paquetesController.items.rowCount > 0}">
-                    <h:outputText value="#{paquetesController.pagination.pageFirstItem + 1}..#{paquetesController.pagination.pageLastItem + 1}/#{paquetesController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{paquetesController.previous}" value="#{bundle.Previous} #{paquetesController.pagination.pageSize}" rendered="#{paquetesController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{paquetesController.next}" value="#{bundle.Next} #{paquetesController.pagination.pageSize}" rendered="#{paquetesController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{paquetesController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPaquetesTitle_id}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.id}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPaquetesTitle_fechaRecogida}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.fechaRecogida}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:outputText>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPaquetesTitle_fechaEstEntr}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.fechaEstEntr}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:outputText>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPaquetesTitle_ciudadOrigen}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.ciudadOrigen}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPaquetesTitle_ciudadDestino}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.ciudadDestino}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPaquetesTitle_direccion}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.direccion}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPaquetesTitle_destinatario}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.destinatario}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPaquetesTitle_estadoActual}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.estadoActual}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPaquetesTitle_idPersEncargada}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idPersEncargada}"/>
-                        </h:column>
-                    </h:dataTable>
-                </h:panelGroup>
-            </h:form>
+            <ui:define name="title">
+                <center>
+                    <h:outputText value="Lista de paquetes" ></h:outputText>
                 </center>
-        </ui:define>
-            </div>
+            </ui:define>
+            <ui:define name="body">
+                <center>
+                    <h:form styleClass="jsfcrud_list_form">
+
+                        <h:panelGroup id="messagePanel" layout="block">
+                            <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                        </h:panelGroup>
+                        <h:outputText escape="false" value="#{bundle.ListPaquetesEmpty}" rendered="#{paquetesController.items.rowCount == 0}"/>
+                        <h:panelGroup rendered="#{paquetesController.items.rowCount > 0}">
+                            <h:outputText value="#{paquetesController.pagination.pageFirstItem + 1}..#{paquetesController.pagination.pageLastItem + 1}/#{paquetesController.pagination.itemsCount}"/>&nbsp;
+                            <h:commandLink action="#{paquetesController.previous}" value="#{bundle.Previous} #{paquetesController.pagination.pageSize}" rendered="#{paquetesController.pagination.hasPreviousPage}"/>&nbsp;
+                            <h:commandLink action="#{paquetesController.next}" value="#{bundle.Next} #{paquetesController.pagination.pageSize}" rendered="#{paquetesController.pagination.hasNextPage}"/>&nbsp;
+                            <h:dataTable value="#{paquetesController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListPaquetesTitle_id}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.id}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListPaquetesTitle_fechaRecogida}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.fechaRecogida}">
+                                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                                    </h:outputText>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListPaquetesTitle_fechaEstEntr}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.fechaEstEntr}">
+                                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                                    </h:outputText>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListPaquetesTitle_ciudadOrigen}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.ciudadOrigen}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListPaquetesTitle_ciudadDestino}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.ciudadDestino}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListPaquetesTitle_direccion}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.direccion}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListPaquetesTitle_destinatario}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.destinatario}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListPaquetesTitle_estadoActual}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.estadoActual}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListPaquetesTitle_idPersEncargada}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.idPersEncargada}"/>
+                                </h:column>
+                            </h:dataTable>
+                        </h:panelGroup>
+                    </h:form>
+                    <h:form>
+                        <center>
+                            <h:commandLink  value="Desconectarse" styleClass="btn btn-large" action="#{usersController.desconectar}">
+                                <f:ajax render="@form" />
+                            </h:commandLink>
+                        </center>
+                    </h:form>
+                </center>
+            </ui:define>
+        </div>
     </ui:composition>
 
 </html>

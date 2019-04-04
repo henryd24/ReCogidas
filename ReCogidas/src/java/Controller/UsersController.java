@@ -22,7 +22,8 @@ import javax.faces.model.SelectItem;
 @Named("usersController")
 @SessionScoped
 public class UsersController implements Serializable {
-    private boolean logeado=false; //Para verificar si alguien sí está logeado y permitirle navegar entre páginas
+
+    private boolean logeado = false; //Para verificar si alguien sí está logeado y permitirle navegar entre páginas
     private Users current;
     private Users userLoger;
     private DataModel items = null;
@@ -41,6 +42,14 @@ public class UsersController implements Serializable {
 
     public void setlogeado(boolean estalogeado) {
         this.logeado = estalogeado;
+    }
+
+    public void desconectar() {
+
+        logeado = false;
+        userLoger = null;
+        verifyLogin();
+
     }
 
     public Users getUserLoger() {
@@ -167,22 +176,35 @@ public class UsersController implements Serializable {
             current = getFacade().findRange(new int[]{selectedItemIndex, selectedItemIndex + 1}).get(0);
         }
     }
+
     public DataModel getItems() {
         if (items == null) {
             items = getPagination().createPageDataModel();
         }
         return items;
     }
+
     public void verifyLogin() {//verifyLogin se encarga de verificar si está logeado
         if (!this.logeado) {
             doRedirect("/ReCogidas/");
         }
     }
+
+    public void verifySesion() {//verifyLogin se encarga de verificar si está logeado
+        if (this.logeado && userLoger.getRol().equalsIgnoreCase("a")) {
+            doRedirect("/ReCogidas/faces/index.xhtml");
+        } else if (this.logeado && userLoger.getRol().equalsIgnoreCase("e")) {
+            doRedirect("/ReCogidas/faces/empleados.xhtml");
+        }
+
+    }
+
     public void verifyEmpleado() {
-        if (userLoger!=null && userLoger.getRol().equalsIgnoreCase("e")) {
+        if (userLoger != null && userLoger.getRol().equalsIgnoreCase("e")) {
             doRedirect("/ReCogidas/faces/empleados.xhtml");
         }
     }
+
     public void doRedirect(String url) {//doRedirect se encarga de redirigir a una URL en concreto
         try {
             FacesContext context = FacesContext.getCurrentInstance();
@@ -197,17 +219,16 @@ public class UsersController implements Serializable {
             Users us = ejbFacade.login(current);
             if (us != null) {
                 userLoger = us;
-                logeado=true;
+                logeado = true;
                 if ("E".equalsIgnoreCase(userLoger.getRol())) {     //Redireccionamiento si es empleado
                     return "empleados.xhtml";
-                }else if ("A".equalsIgnoreCase(userLoger.getRol())) {// Redireccionamiento si es administrador
+                } else if ("A".equalsIgnoreCase(userLoger.getRol())) {// Redireccionamiento si es administrador
                     return "index.xhtml";
-                }else{
+                } else {
                     return "Login.xhtml"; //Si el registro es inválido o el usuario no tiene ningun rol en la BD
                 }
-                
-                }
-            else {
+
+            } else {
                 userLoger = null;
                 return "Login.xhtml"; //Si el resgistro es inválido
             }
@@ -274,7 +295,7 @@ public class UsersController implements Serializable {
             sb.append(value);
             return sb.toString();
         }
-       
+
         @Override
         public String getAsString(FacesContext facesContext, UIComponent component, Object object) {
             if (object == null) {

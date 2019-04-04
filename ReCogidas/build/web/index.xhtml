@@ -7,15 +7,16 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Facelet Title</title>
-         <!-- Se asegura que si haya un usuario conectado para permitir la navegacion -->
+        <!-- Se asegura que si haya un usuario conectado para permitir la navegacion -->
+        
         <f:metadata>
             <f:event listener="#{usersController.verifyLogin()}" 
-                 type="preRenderView"></f:event>
+                     type="preRenderView"></f:event>
         </f:metadata>
-          <!-- Se asegura que los empleados no puedan navegar en éstos sitios -->
+        <!-- Se asegura que los empleados no puedan navegar en éstos sitios -->
         <f:metadata>
-        <f:event listener="#{usersController.verifyEmpleado()}" 
-                 type="preRenderView"></f:event>
+            <f:event listener="#{usersController.verifyEmpleado()}" 
+                     type="preRenderView"></f:event>
         </f:metadata>
         <h:outputStylesheet name="css/jsfcrud.css"/>
     </h:head>
@@ -41,8 +42,17 @@
             <p:button outcome="/paquetes/List" value="Paquetes" icon="pi pi-star" style="margin-right:20px;">
                 <f:param name="productId" value="10" />
             </p:button>
-           
+
         </center>
+        <h:form>
+            <center>
+                <h:commandLink  value="Desconectarse" styleClass="btn btn-large" action="#{usersController.desconectar}">
+                    <f:ajax render="@form" />
+                </h:commandLink>
+            </center>
+        </h:form>
+        <br />
+        <br />
 
 
     </h:body>
